@@ -2,6 +2,8 @@ import GalleryGrid from '../components/GalleryGrid';
 import './LandingPage.css';
 
 export default function LandingPage({ featuredImages }) {
+  const safeFeaturedImages = Array.isArray(featuredImages) ? featuredImages : [];
+
   return (
     <div className="landing-page">
       <section className="hero">
