@@ -1,3 +1,5 @@
+import './BookingsPage.css';
+
 export default function BookingsPage() {
   return (
     <>

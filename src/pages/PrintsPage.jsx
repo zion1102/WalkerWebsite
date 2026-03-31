@@ -1,10 +1,11 @@
 import GalleryGrid from '../components/GalleryGrid';
+import './PrintsPage.css';
 
 export default function PrintsPage({ images }) {
   const printImages = images.filter((img) => img.category === 'prints');
 
   return (
-    <>
+    <div className="prints-page">
       <section className="hero hero-small">
         <p className="kicker">Print store</p>
         <h1>Bring the outdoors into your space</h1>
@@ -31,6 +32,6 @@ export default function PrintsPage({ images }) {
         </article>
       </section>
       <GalleryGrid images={printImages} title="Available Prints" allowDownload />
-    </>
+    </div>
   );
 }

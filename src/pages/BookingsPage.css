@@ -1,0 +1,36 @@
+.bookings-page {
+  position: relative;
+}
+
+.bookings-page .hero {
+  background:
+    linear-gradient(120deg, rgba(188, 219, 205, 0.9), rgba(229, 223, 187, 0.95)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover;
+}
+
+.bookings-page .split-content .panel {
+  background: linear-gradient(140deg, rgba(244, 250, 239, 0.94), rgba(229, 241, 219, 0.9));
+}
+
+.bookings-page .split-content .panel:first-child {
+  border-top: 5px solid #487554;
+}
+
+.bookings-page .split-content .panel:last-child {
+  border-top: 5px solid #6e8453;
+}
+
+.bookings-page .booking-form {
+  grid-template-columns: 1fr 1fr;
+}
+
+.bookings-page .booking-form label:last-of-type,
+.bookings-page .booking-form button {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 760px) {
+  .bookings-page .booking-form {
+    grid-template-columns: 1fr;
+  }
+}

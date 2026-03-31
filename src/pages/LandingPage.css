@@ -1,0 +1,36 @@
+.landing-page {
+  position: relative;
+}
+
+.landing-page::before {
+  content: '';
+  position: absolute;
+  inset: -1rem 0 auto;
+  height: 280px;
+  background: radial-gradient(circle at 20% 20%, rgba(113, 161, 94, 0.2), transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.landing-page .hero {
+  background:
+    linear-gradient(130deg, rgba(195, 225, 171, 0.92), rgba(228, 215, 174, 0.92)),
+    url('https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1600&q=80') center/cover;
+  color: #163225;
+}
+
+.landing-page .hero p {
+  max-width: 70ch;
+}
+
+.landing-page .feature-strip .panel {
+  background: linear-gradient(150deg, rgba(246, 252, 242, 0.94), rgba(224, 239, 216, 0.94));
+}
+
+.landing-page .split-content .panel:first-child {
+  border-left: 6px solid #4f7a3d;
+}
+
+.landing-page .split-content .panel:last-child {
+  border-left: 6px solid #7d5e39;
+}

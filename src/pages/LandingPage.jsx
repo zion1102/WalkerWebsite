@@ -1,8 +1,9 @@
 import GalleryGrid from '../components/GalleryGrid';
+import './LandingPage.css';
 
 export default function LandingPage({ featuredImages }) {
   return (
-    <>
+    <div className="landing-page">
       <section className="hero">
         <p className="kicker">Earth tones • Wild light • Story-led portraits</p>
         <h1>Nature-rooted visuals that feel grounded, cinematic, and alive.</h1>

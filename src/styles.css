@@ -64,6 +64,19 @@ body {
   border: 1px solid rgba(41, 67, 47, 0.18);
   box-shadow: 0 20px 34px rgba(34, 56, 42, 0.08);
   margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto -20% -60% auto;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.32), transparent 68%);
+  pointer-events: none;
 }
 
 .hero h1 {
