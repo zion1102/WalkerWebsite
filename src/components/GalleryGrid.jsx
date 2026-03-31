@@ -10,12 +10,16 @@ export default function GalleryGrid({ images, title, allowDownload = false }) {
               <h3>{img.title}</h3>
               <p className="tag">{img.category.toUpperCase()}</p>
               {allowDownload && img.downloadable ? (
-                <a href={img.imageUrl} download className="download-link">
-                  Download
+                <a
+                  href={img.imageUrl}
+                  download
+                  className="download-link"
+                  aria-label={`Download ${img.title}`}
+                  title={`Download ${img.title}`}
+                >
+                  ⬇
                 </a>
-              ) : (
-                <p className="muted">Download disabled</p>
-              )}
+              ) : null}
             </div>
           </article>
         ))}
