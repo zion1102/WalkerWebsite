@@ -33,8 +33,8 @@ export default function AdminPage({ images, upsertImage, removeImage, setDownloa
     <section className="panel">
       <h1>Admin Portal</h1>
       <p>
-        Update the live site gallery here. Add or edit images, choose where they appear,
-        and control download access image-by-image.
+        Manage which images appear across landing and prints pages. Downloads are off by
+        default and can be enabled per image.
       </p>
 
       <form className="admin-form" onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ export default function AdminPage({ images, upsertImage, removeImage, setDownloa
             checked={draft.downloadable}
             onChange={(e) => setDraft((prev) => ({ ...prev, downloadable: e.target.checked }))}
           />
-          Allow download icon
+          Allow download
         </label>
 
         <button type="submit">{draft.id ? 'Update image' : 'Add image'}</button>
@@ -104,7 +104,7 @@ export default function AdminPage({ images, upsertImage, removeImage, setDownloa
             <div>
               <strong>{img.title}</strong>
               <p className="muted">
-                {img.category} • {img.downloadable ? 'download enabled' : 'download hidden'}
+                {img.category} • {img.downloadable ? 'download on' : 'download off'}
               </p>
             </div>
             <div className="admin-actions">
