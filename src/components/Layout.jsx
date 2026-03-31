@@ -11,9 +11,12 @@ export default function Layout({ children }) {
   return (
     <div className="app-shell">
       <header className="site-header">
-        <Link to="/" className="brand">
-          Walker Photography
-        </Link>
+        <div>
+          <Link to="/" className="brand">
+            Walker Photography
+          </Link>
+          <p className="muted">Natural-light portraits and print stories</p>
+        </div>
         <nav>
           {navItems.map((item) => (
             <NavLink
@@ -29,6 +32,11 @@ export default function Layout({ children }) {
         </nav>
       </header>
       <main>{children}</main>
+      <footer className="content-section">
+        <p className="muted">
+          Crafted with a love for natural textures, quiet landscapes, and authentic moments.
+        </p>
+      </footer>
     </div>
   );
 }
