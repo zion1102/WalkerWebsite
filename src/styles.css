@@ -112,12 +112,6 @@ body {
   overflow: hidden;
   border: 1px solid rgba(39, 74, 51, 0.22);
   box-shadow: 0 10px 25px rgba(39, 74, 51, 0.09);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(28, 53, 36, 0.15);
 }
 
 .photo {

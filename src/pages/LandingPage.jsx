@@ -63,6 +63,6 @@ export default function LandingPage({ featuredImages }) {
           </ul>
         </article>
       </section>
-    </div>
+    </>
   );
 }

@@ -2,7 +2,7 @@ import './BookingsPage.css';
 
 export default function BookingsPage() {
   return (
-    <div className="bookings-page">
+    <>
       <section className="hero hero-small">
         <p className="kicker">Bookings</p>
         <h1>Plan your nature-inspired session</h1>
@@ -56,6 +56,6 @@ export default function BookingsPage() {
           <button type="submit">Send request</button>
         </form>
       </section>
-    </div>
+    </>
   );
 }
