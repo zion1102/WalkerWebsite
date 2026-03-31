@@ -38,7 +38,7 @@ export default function LandingPage({ featuredImages }) {
           </p>
         </article>
       </section>
-      <GalleryGrid images={safeFeaturedImages} title="Featured Work" />
+      <GalleryGrid images={featuredImages} title="Featured Work" />
       <section className="content-section split-content">
         <article className="panel">
           <h2>Seasonal sessions</h2>
@@ -65,6 +65,6 @@ export default function LandingPage({ featuredImages }) {
           </ul>
         </article>
       </section>
-    </div>
+    </>
   );
 }
