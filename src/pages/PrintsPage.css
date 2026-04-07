@@ -1,29 +1,116 @@
-.prints-page {
-  position: relative;
+.prints .kicker { color: var(--fern); }
+.prints .strip-num { color: var(--fern); }
+
+.prints .hero {
+  height: 65vh; min-height: 480px;
+  display: flex; align-items: flex-end;
+  padding: 0 0 72px 7vw;
+}
+.prints .hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.95; color: var(--parch); margin: 0;
 }
 
-.prints-page .hero {
-  background:
-    linear-gradient(120deg, rgba(176, 205, 184, 0.9), rgba(233, 206, 167, 0.9)),
-    url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=1600&q=80') center/cover;
+/* FEATURED */
+.prints .feat {
+  display: grid; grid-template-columns: 3fr 2fr;
+  background: var(--ink2); min-height: 520px;
 }
-
-.prints-page .panel {
-  background: linear-gradient(150deg, rgba(249, 251, 245, 0.95), rgba(236, 244, 230, 0.9));
+.prints .feat-img { overflow: hidden; height: 520px; }
+.prints .feat-img img {
+  filter: saturate(0.68) brightness(0.8) contrast(1.08);
+  transition: transform 1s cubic-bezier(0.16,1,0.3,1);
 }
-
-.prints-page .split-content .panel:first-child {
-  box-shadow: inset 0 0 0 1px rgba(74, 108, 66, 0.2), 0 12px 20px rgba(32, 55, 37, 0.07);
+.prints .feat:hover .feat-img img { transform: scale(1.04); }
+.prints .feat-copy {
+  padding: 56px 52px; display: flex; flex-direction: column;
+  justify-content: center; gap: 16px;
 }
-
-.prints-page .split-content .panel:last-child {
-  background:
-    linear-gradient(140deg, rgba(255, 249, 237, 0.95), rgba(232, 245, 228, 0.95));
+.prints .feat-ed {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--fern); margin: 0;
 }
+.prints .feat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 30px; font-weight: 300;
+  color: var(--parch); line-height: 1.1; margin: 0;
+}
+.prints .feat-desc { font-size: 15px; font-weight: 300; color: var(--dim); line-height: 1.8; max-width: 32ch; margin: 0; }
+.prints .feat-meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); padding: 14px 0;
+}
+.prints .feat-sizes { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--dim); }
+.prints .feat-price { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--parch); }
+.prints .btn-inq {
+  align-self: flex-start; background: transparent;
+  border: 1px solid rgba(221,212,180,0.18); color: var(--dim);
+  padding: 12px 28px; font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  cursor: pointer; transition: border-color 0.3s, color 0.3s;
+}
+.prints .btn-inq:hover { border-color: var(--gold); color: var(--gold-lt); }
 
-.prints-page .section-title {
-  display: inline-block;
-  padding: 0.2rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(46, 79, 57, 0.1);
+/* COLLECTION */
+.prints .col-head {
+  padding: 64px 7vw 24px; background: var(--ink);
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+}
+.prints .col-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 34px; font-weight: 300;
+  color: var(--parch); margin: 0 0 8px; line-height: 1;
+}
+.prints .col-desc { font-size: 14px; font-weight: 300; color: var(--dim); max-width: 46ch; line-height: 1.7; margin: 0; }
+.prints .col-ct { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+
+/* PRINT GRID */
+.prints .pgrid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 4px; padding: 0 4px 4px; background: var(--ink);
+}
+.prints .pcard { background: var(--ink2); overflow: hidden; cursor: pointer; }
+.prints .pcard-img { height: 360px; overflow: hidden; position: relative; }
+.prints .pcard-img img {
+  filter: saturate(0.7) contrast(1.06) brightness(0.84);
+  transition: transform 0.85s cubic-bezier(0.16,1,0.3,1), filter 0.5s;
+}
+.prints .pcard:hover .pcard-img img { transform: scale(1.07); filter: saturate(0.92) contrast(1.06) brightness(1); }
+.prints .pcard-img::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(9,15,10,0.62) 0%, transparent 45%);
+}
+.prints .pcard-hov {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(9,15,10,0.38); opacity: 0; transition: opacity 0.3s;
+}
+.prints .pcard:hover .pcard-hov { opacity: 1; }
+.prints .pcard-hov span {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--parch);
+  border: 1px solid rgba(221,212,180,0.3); padding: 9px 20px;
+}
+.prints .pcard-info { padding: 18px 20px 22px; display: flex; justify-content: space-between; align-items: flex-start; }
+.prints .pcard-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; font-weight: 300; color: var(--parch); margin: 0 0 4px; }
+.prints .pcard-sizes { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--dim); margin: 0; }
+.prints .pcard-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--fern); white-space: nowrap; margin: 0; }
+
+/* CTA */
+.prints .pcta { padding: 88px 7vw; background: var(--ink2); }
+.prints .pcta h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 34px; font-weight: 300; color: var(--parch); margin: 0 0 12px; }
+.prints .pcta p  { font-size: 15px; font-weight: 300; color: var(--dim); max-width: 40ch; line-height: 1.8; margin: 0; }
+
+@media (max-width: 860px) {
+  .prints .feat { grid-template-columns: 1fr; }
+  .prints .feat-img { height: 360px; }
+  .prints .feat-copy { padding: 40px 6vw; }
+  .prints .pgrid { grid-template-columns: 1fr 1fr; }
+  .prints .col-head { padding: 48px 6vw 20px; flex-direction: column; align-items: flex-start; }
+  .prints .pcta { padding: 64px 6vw; }
+}
+@media (max-width: 560px) {
+  .prints .pgrid { grid-template-columns: 1fr; }
 }

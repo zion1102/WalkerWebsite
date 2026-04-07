@@ -1,70 +1,114 @@
-import GalleryGrid from '../components/GalleryGrid';
+import './Base.css';
 import './LandingPage.css';
 
+const IMGS = [
+  { src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1000&q=82', name: 'Golden Hour',   tag: 'Portrait'  },
+  { src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&q=82', name: 'Open Field',   tag: 'Landscape' },
+  { src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1000&q=82', name: 'Forest Floor', tag: 'Editorial' },
+  { src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1000&q=82', name: 'Soft Light',   tag: 'Portrait'  },
+  { src: 'https://images.unsplash.com/photo-1516575334481-f85287c2c82d?w=1200&q=82', name: 'Morning Mist', tag: 'Couples'   },
+  { src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1000&q=82', name: 'Blue Hour',    tag: 'Landscape' },
+  { src: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1000&q=82', name: 'Coastline',   tag: 'Lifestyle' },
+  { src: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1000&q=82', name: 'Forest Walk', tag: 'Editorial' },
+];
+
 export default function LandingPage({ featuredImages }) {
-  const safeFeaturedImages = Array.isArray(featuredImages) ? featuredImages : [];
+  const imgs = (Array.isArray(featuredImages) && featuredImages.length > 0) ? featuredImages : IMGS;
+  const g = (i) => imgs[i] || IMGS[i % IMGS.length];
 
   return (
-    <div className="landing-page">
+    <div className="wp-page landing">
+
+      {/* ── HERO ── */}
       <section className="hero">
-        <p className="kicker">Earth tones • Wild light • Story-led portraits</p>
-        <h1>Nature-rooted visuals that feel grounded, cinematic, and alive.</h1>
-        <p>
-          Walker creates portrait and lifestyle imagery inspired by forests, coastlines,
-          open skies, and organic textures. Every frame is designed to feel personal, warm,
-          and connected to the outdoors.
+        <div className="hero-bg"><img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1800&q=85" alt="" /></div>
+        <div className="hero-content">
+          <span className="kicker">Walker Photography</span>
+          <h1>Wild<br /><em>light.</em><br />True<br />stories.</h1>
+        </div>
+      </section>
+
+      {/* ── OPENING ── */}
+      <div className="opening">
+        <span className="opening-eyebrow">Trinidad · Natural light</span>
+        <p className="opening-headline">
+          Nature-rooted portraits that feel <em>alive.</em>
         </p>
-      </section>
-      <section className="content-section feature-strip">
-        <article className="panel">
-          <h3>How we shoot</h3>
-          <p className="muted">
-            We build sessions around natural movement, soft direction, and seasonal light
-            so your gallery feels effortless and true to you.
-          </p>
-        </article>
-        <article className="panel">
-          <h3>Locations with character</h3>
-          <p className="muted">
-            Pine trails, dry canyons, quiet beaches, and green city pockets—chosen to match
-            your story and styling.
-          </p>
-        </article>
-        <article className="panel">
-          <h3>Delivered for sharing</h3>
-          <p className="muted">
-            High-resolution edits, social crops, and print-ready options so your favorite
-            moments can live online and on your walls.
-          </p>
-        </article>
-      </section>
-      <GalleryGrid images={featuredImages} title="Featured Work" />
-      <section className="content-section split-content">
-        <article className="panel">
-          <h2>Seasonal sessions</h2>
-          <p>
-            Spring blooms, summer haze, autumn texture, winter calm—book in your favorite
-            season for a gallery that reflects your mood and style.
-          </p>
-          <ul className="detail-list">
-            <li>Golden hour guidance and outfit planning.</li>
-            <li>Location scouting included with every session.</li>
-            <li>Moodboard support to shape your visual direction.</li>
-          </ul>
-        </article>
-        <article className="panel">
-          <h2>Client favorites</h2>
-          <p>
-            Most requested sessions include couples, creative portraits, and personal brand
-            storytelling in outdoor settings.
-          </p>
-          <ul className="detail-list">
-            <li>45- to 90-minute sessions.</li>
-            <li>Optional film-inspired color grading.</li>
-            <li>Private gallery delivery within 7 days.</li>
-          </ul>
-        </article>
-      </section>
-    </>
+      </div>
+
+      {/* ── FIRST IMAGE BREAK ── */}
+      <div className="break break-h1">
+        <img src={g(1).src} alt={g(1).name} />
+        <span className="break-caption">{g(1).tag}</span>
+      </div>
+
+      {/* ── SCATTER GALLERY ── */}
+      <div className="scatter">
+        <div className="sc sc-tall">
+          <img src={g(0).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(0).tag}</span><span className="sc-name">{g(0).name}</span></div>
+        </div>
+        <div className="sc sc-med">
+          <img src={g(2).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(2).tag}</span><span className="sc-name">{g(2).name}</span></div>
+        </div>
+        <div className="sc sc-med">
+          <img src={g(3).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(3).tag}</span><span className="sc-name">{g(3).name}</span></div>
+        </div>
+        <div className="sc sc-tall">
+          <img src={g(4).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(4).tag}</span><span className="sc-name">{g(4).name}</span></div>
+        </div>
+        <div className="sc sc-tall">
+          <img src={g(5).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(5).tag}</span><span className="sc-name">{g(5).name}</span></div>
+        </div>
+        <div className="sc sc-wide">
+          <img src={g(6).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(6).tag}</span><span className="sc-name">{g(6).name}</span></div>
+        </div>
+        <div className="sc sc-short">
+          <img src={g(7).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(7).tag}</span><span className="sc-name">{g(7).name}</span></div>
+        </div>
+        <div className="sc sc-short">
+          <img src={g(2).src} alt="" />
+          <div className="sc-lbl"><span className="sc-tag">{g(2).tag}</span><span className="sc-name">{g(2).name}</span></div>
+        </div>
+      </div>
+
+      {/* ── GHOST INTERLUDE ── */}
+      <div className="ghost">
+        <div className="ghost-num">7</div>
+        <div className="ghost-text">
+          <h3>Days to delivery.</h3>
+          <p>Every session becomes a private gallery of edited, high-resolution images — ready to print or share within a week.</p>
+        </div>
+      </div>
+
+      {/* ── SECOND FULL-BLEED ── */}
+      <div className="break break-h2">
+        <img src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=1800&q=85" alt="" />
+        <span className="break-caption">Seasonal · Forest</span>
+      </div>
+
+      {/* ── SERVICES ── */}
+      <div className="services">
+        {[
+          { n: '01', h: 'How we shoot',   p: 'Natural movement, soft direction, seasonal light.' },
+          { n: '02', h: 'Locations',      p: 'Trails, canyons, beaches — chosen for your story.' },
+          { n: '03', h: 'Seasons',        p: 'Any light. Any season. Any mood.' },
+          { n: '04', h: 'Delivered',      p: 'Print-ready files and social crops, within 7 days.' },
+        ].map(s => (
+          <div className="svc" key={s.n}>
+            <div className="svc-n">{s.n}</div>
+            <h4>{s.h}</h4>
+            <p>{s.p}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
   );
 }
